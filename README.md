@@ -20,6 +20,16 @@ In order to convert a number to a roman numeral, call the to_roman method:
 RomanNumerals.to_roman(1)
 ```
 
+
+### Converting to a medieval roman numeral
+Medieval calendars use IIII for 4. In order to convert a number to a medieval
+roman numeral, call the to_medieval method:
+
+```ruby
+RomanNumerals.to_medieval(5)          # => V
+RomanNumerals.to_medieval(19)         # => XVIIII
+```
+
 ### Converting to a decimal
 In order to convert to a decimal from a roman numeral, call the to_decimal method
 
