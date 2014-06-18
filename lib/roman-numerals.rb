@@ -15,7 +15,7 @@ module RomanNumerals
     1000 => 'M'
   }
 
-  @medieval_digits = @base_digits.reject { |k,v| [4,9].include?(k) }
+  @medieval_digits = @base_digits.reject { |k,v| k == 4 }
 
   def self.to_medieval value
     build_roman @medieval_digits, value

@@ -22,6 +22,7 @@ describe RomanNumerals do
     medieval_digits = {
     1    => 'I',
     5    => 'V',
+    9    => 'IX',
     10   => 'X',
     40   => 'XL',
     50   => 'L',
@@ -44,8 +45,8 @@ describe RomanNumerals do
       RomanNumerals.to_medieval(42).should == 'XLII'
       RomanNumerals.to_medieval(4).should == 'IIII'
       RomanNumerals.to_medieval(14).should == 'XIIII'
-      RomanNumerals.to_medieval(9).should == 'VIIII'
-      RomanNumerals.to_medieval(19).should == 'XVIIII'
+      RomanNumerals.to_medieval(9).should == 'IX'
+      RomanNumerals.to_medieval(19).should == 'XIX'
     end
   end
 
