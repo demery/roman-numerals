@@ -15,15 +15,14 @@ module RomanNumerals
     1000 => 'M'
   }
 
+  @medieval_digits = @base_digits.reject { |k,v| [4,9].include?(k) }
+
+  def self.to_medieval value
+    build_roman @medieval_digits, value
+  end
+
   def self.to_roman value
-    result = ''
-    @base_digits.keys.reverse.each do |decimal|
-      while value >= decimal
-        value -= decimal
-        result += @base_digits[decimal]
-      end
-    end
-    result
+    build_roman @base_digits, value
   end
 
   def self.to_decimal value
@@ -34,6 +33,19 @@ module RomanNumerals
         value = value.slice(roman.length, value.length)
         result += @base_digits.key roman
       end
+    end
+    result
+  end
+
+  private
+  def self.build_roman digits, value
+    result = ''
+    digits.keys.reverse.each do |decimal|
+      while value >= decimal
+        value -= decimal
+        result += digits[decimal]
+      end
+      result
     end
     result
   end
